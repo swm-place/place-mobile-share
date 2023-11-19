@@ -11,7 +11,7 @@
 <!--    </v-app-bar>-->
 
     <v-main>
-      <v-container id="mobile-root" class="pt-0">
+      <v-container id="mobile-root" class="pa-0">
         <v-img
             aspect-ratio="16/9"
             cover
@@ -26,18 +26,41 @@
               no-gutters
           >
             <v-col class="pl-2 pr-2">
-              <div class="description-item pa-2">
-                <div class="des-title">지역</div>
-                <div class="des-content">서울특별시 광진구 화양동</div>
-              </div>
+              <CourseDescriptionComponent
+                  title="지역"
+                  content="서울특별시"
+              />
             </v-col>
             <v-col class="pl-2 pr-2">
-              <div class="description-item"></div>
+              <CourseDescriptionComponent
+                  title="이동거리"
+                  content="1.2km"
+              />
             </v-col>
             <v-col class="pl-2 pr-2">
-              <div class="description-item"></div>
+              <CourseDescriptionComponent
+                  title="방문 장소"
+                  content="4곳"
+              />
             </v-col>
           </v-row>
+        </v-container>
+        <v-container class="pt-0">
+          <v-container class="subtitle pa-0 pb-2">
+            장소 목록
+          </v-container>
+          <v-col
+              align="center"
+              no-gutters
+          >
+            <v-row>
+              <v-card class="w-100">
+                <v-card-text>
+                  sds
+                </v-card-text>
+              </v-card>
+            </v-row>
+          </v-col>
         </v-container>
       </v-container>
     </v-main>
@@ -48,4 +71,5 @@
 @import "../../css/layout/mobile-appbar-style.scss";
 </style>
 <script setup>
+import CourseDescriptionComponent from "@/components/course/CourseDescriptionComponent.vue";
 </script>
