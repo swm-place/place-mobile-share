@@ -46,21 +46,27 @@
           </v-row>
         </v-container>
         <v-container class="pt-0">
-          <v-container class="subtitle pa-0 pb-2">
+          <v-container class="subtitle pa-0 pb-1">
             장소 목록
           </v-container>
           <v-col
               align="center"
               no-gutters
           >
-            <v-row>
-              <v-card class="w-100">
-                <v-card-text>
-                  <div class="w-100">
-                    sss
-                  </div>
-                </v-card-text>
-              </v-card>
+            <v-row class="pt-1 pb-1">
+              <PlaceCardComponent/>
+            </v-row>
+            <v-row class="pt-1 pb-1">
+              <PlaceCardComponent/>
+            </v-row>
+            <v-row class="pt-1 pb-1">
+              <PlaceCardComponent/>
+            </v-row>
+            <v-row class="pt-1 pb-1">
+              <PlaceCardComponent/>
+            </v-row>
+            <v-row class="pt-1 pb-1">
+              <PlaceCardComponent/>
             </v-row>
           </v-col>
         </v-container>
@@ -74,4 +80,5 @@
 </style>
 <script setup>
 import CourseDescriptionComponent from "@/components/course/CourseDescriptionComponent.vue";
+import PlaceCardComponent from "@/components/course/PlaceCardComponent.vue";
 </script>
