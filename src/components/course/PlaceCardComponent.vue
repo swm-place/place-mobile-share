@@ -7,17 +7,21 @@
               width="90"
               height="90"
               cover
-              src="https://cdn.vuetifyjs.com/images/parallax/material.jpg"
+              :src="props.img"
           ></v-img>
         </v-responsive>
-        <div class="w-100 pa-4 place-card-title">장소 이름</div>
+        <div class="w-100 pa-4 place-card-title">{{ props.title }}</div>
       </div>
     </v-card-text>
   </v-card>
 </template>
 
 <script setup>
-
+import { defineProps } from 'vue'
+const props = defineProps({
+  title: String,
+  img: String
+});
 </script>
 
 <style scoped>
