@@ -20,7 +20,25 @@
         <v-container class="title pl-4 pr-4">
           코스 이름
         </v-container>
-
+        <v-container class="pl-2 pr-2 pt-0">
+          <v-row
+              align="center"
+              no-gutters
+          >
+            <v-col class="pl-2 pr-2">
+              <div class="description-item pa-2">
+                <div class="des-title">지역</div>
+                <div class="des-content">서울특별시 광진구 화양동</div>
+              </div>
+            </v-col>
+            <v-col class="pl-2 pr-2">
+              <div class="description-item"></div>
+            </v-col>
+            <v-col class="pl-2 pr-2">
+              <div class="description-item"></div>
+            </v-col>
+          </v-row>
+        </v-container>
       </v-container>
     </v-main>
   </v-layout>
