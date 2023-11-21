@@ -84,8 +84,8 @@ import CourseDescriptionComponent from "@/components/course/CourseDescriptionCom
 import PlaceCardComponent from "@/components/course/PlaceCardComponent.vue";
 import {useRoute} from "vue-router";
 const route = useRoute();
-console.log(route.query.data)
-console.log(route.query.data.length)
-console.log(JSON.parse(decodeURIComponent(route.query.data)))
+// console.log(route.query.data)
+// console.log(route.query.data.length)
+// console.log(JSON.parse(decodeURIComponent(route.query.data)))
 const data = JSON.parse(decodeURIComponent(route.query.data))
 </script>
