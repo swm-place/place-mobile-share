@@ -67,7 +67,7 @@
           </v-col>
         </v-container>
         <v-container class="pt-0">
-          <v-btn class="w-100" color="primary">
+          <v-btn class="w-100" color="primary" @click="openStore">
             앱 열어서 자세히 확인하기
           </v-btn>
         </v-container>
@@ -88,4 +88,22 @@ const route = useRoute();
 // console.log(route.query.data.length)
 // console.log(JSON.parse(decodeURIComponent(route.query.data)))
 const data = JSON.parse(decodeURIComponent(route.query.data))
+</script>
+
+<script>
+export default {
+  methods: {
+    openStore() {
+      const varUA = navigator.userAgent.toLowerCase();
+      console.log(varUA)
+      if ( varUA.indexOf('android') > -1) {
+        window.open('https://play.google.com/store/apps/details?id=com.ours.place', '_blank').focus();
+      } else if ( varUA.indexOf("iphone") > -1 || varUA.indexOf("ipad") > -1 || varUA.indexOf("ipod") > -1 ) {
+        window.open('https://testflight.apple.com/join/YB4lWXxb', '_blank').focus();
+      } else {
+        window.open('https://play.google.com/store/apps/details?id=com.ours.place', '_blank').focus();
+      }
+    }
+  }
+}
 </script>
