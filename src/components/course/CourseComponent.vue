@@ -16,10 +16,10 @@
             height="300"
             aspect-ratio="16/9"
             cover
-            src="https://search.pstatic.net/common/?src=https%3A%2F%2Fpup-review-phinf.pstatic.net%2FMjAyMzExMDRfMTMw%2FMDAxNjk5MDk5NjMyNjg3.7_RsyEYIA1R3UJjPomIkyH8N-Kork17Pbq95tO8Zdv4g.XDFNYDY84C_BvW-cox1pJ7ewn07mKpQZRw4lKyCa2IYg.JPEG%2F20231104_210614.jpg"
+            :src="data['places'][0]['img']"
         ></v-img>
         <v-container class="title pl-4 pr-4">
-          건대 코스
+          {{ data['title'] }}
         </v-container>
         <v-container class="pl-2 pr-2 pt-0">
           <v-row
@@ -29,19 +29,19 @@
             <v-col class="pl-2 pr-2">
               <CourseDescriptionComponent
                   title="지역"
-                  content="서울특별시"
+                  :content="data['region_name']"
               />
             </v-col>
             <v-col class="pl-2 pr-2">
               <CourseDescriptionComponent
                   title="이동거리"
-                  content="1.2km"
+                  :content="data['distance']"
               />
             </v-col>
             <v-col class="pl-2 pr-2">
               <CourseDescriptionComponent
                   title="방문 장소"
-                  content="4곳"
+                  :content="data['count'] + '곳'"
               />
             </v-col>
           </v-row>
@@ -54,28 +54,14 @@
               align="center"
               no-gutters
           >
-            <v-row class="pt-1 pb-1">
+            <v-row
+                v-for="(item, index) in data['places']"
+                class="pt-1 pb-1"
+                v-bind:key="index"
+            >
               <PlaceCardComponent
-                  title="엔제리너스커피 건대역점"
-                  img="https://search.pstatic.net/common/?src=https%3A%2F%2Fpup-review-phinf.pstatic.net%2FMjAyMzExMDRfMTMw%2FMDAxNjk5MDk5NjMyNjg3.7_RsyEYIA1R3UJjPomIkyH8N-Kork17Pbq95tO8Zdv4g.XDFNYDY84C_BvW-cox1pJ7ewn07mKpQZRw4lKyCa2IYg.JPEG%2F20231104_210614.jpg"
-              />
-            </v-row>
-            <v-row class="pt-1 pb-1">
-              <PlaceCardComponent
-                  title="제주곤이칼국수 건대점"
-                  img="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20221219_73%2F1671415873694AWTMq_JPEG%2FDSC04440.jpg"
-              />
-            </v-row>
-            <v-row class="pt-1 pb-1">
-              <PlaceCardComponent
-                  title="다빈치보드게임카페"
-                  img="https://search.pstatic.net/common/?src=https%3A%2F%2Fpup-review-phinf.pstatic.net%2FMjAyMzEwMTlfMjky%2FMDAxNjk3Njg4NDI1Mzk0.PUpHpcBGg6dAwL9q4NVOghwpnLk85OCxKbk6EJyB9bQg.JVVGagelbqxWhAnoGLIMBel4Uk6wKUMA1vOs-D9EQMMg.JPEG%2FF667630C-DAC0-43B2-AA0F-718EE73EA60C.jpeg"
-              />
-            </v-row>
-            <v-row class="pt-1 pb-1">
-              <PlaceCardComponent
-                  title="이찌방이야기 건대점"
-                  img="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20230717_57%2F16895940391290Ayxw_JPEG%2FIMG_9734.jpeg"
+                  :title="item['name']"
+                  :img="item['img']"
               />
             </v-row>
           </v-col>
@@ -96,4 +82,10 @@
 <script setup>
 import CourseDescriptionComponent from "@/components/course/CourseDescriptionComponent.vue";
 import PlaceCardComponent from "@/components/course/PlaceCardComponent.vue";
+import {useRoute} from "vue-router";
+const route = useRoute();
+console.log(route.query.data)
+console.log(route.query.data.length)
+console.log(JSON.parse(decodeURIComponent(route.query.data)))
+const data = JSON.parse(decodeURIComponent(route.query.data))
 </script>
